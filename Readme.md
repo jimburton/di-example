@@ -1,7 +1,7 @@
-# Dependence Injection
+# Dependency Injection
 
 This repository contains the lab exercise for Week 4 in CI346, and is
-about the *Dependency Injection* design pattern. Although the program
+all about the *Dependency Injection* design pattern. Although the program
 currently works, it violates some or all of the SOLID principles, and
 is unfortunately brittle -- making a small change, such as printing
 the information of a book in a different style, would require many
@@ -18,6 +18,8 @@ classes until you understand the application.
 The `Book` class contains methods for printing the details of books,
 such as `printContents`. Which SOLID principles does this
 violate?
+
+## Improving things
   
 There are several ways we could begin to improve the `Book` class. We
 could create interfaces that specify the methods that
@@ -76,6 +78,8 @@ prints everything to standard output using
 `String` to be printed, without knowing anything about
 *how* to print it. Thus, we could use this formatter to print to
 standard output, to a log file, or anywhere we like.
+
+## Formatting books
   
 In the same package, create a class called `BookContentsFormatter`
 that extends `BookFormatter`. Create a constructor for the new
@@ -102,6 +106,8 @@ You can now remove all of the `print` methods from the
 `Book` class. This class now contains no code relating to
 formatting or printing information. How does this relate to the SOLID
 principles?
+
+## Formatting books differently
   
 Create another formatter, `BookInfoFormatter`. Base this class
 on `BookContentsFormatter` except that the `format`
@@ -111,6 +117,8 @@ method.
 Alter the `main` method so that it uses a
 `BookInfoFormatter` instead of the
 `BookContentsFormatter`.
+
+## Interface segregation
   
 Another problem with this application is that the `Book` class
 contains code relating to saving and retrieving objects. If we decide
